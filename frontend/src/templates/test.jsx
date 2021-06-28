@@ -1,14 +1,10 @@
+  
 import React, {useEffect, useState} from 'react'
 import axios from 'axios';
 import { Button } from '@material-ui/core';
 
 const Home = ({children}) => { 
-    /*
-    useEffect(()=>{
-        
-    },[])
-    */
-    
+
     const [connection, setConnection] = useState(false)
     const handleClick = e => {
         e.preventDefault()
@@ -20,7 +16,6 @@ const Home = ({children}) => {
             setConnection(res.data.connection === 'SUCCESS')
         });
     }
-
     return (<>
     <table className="tab_lay">
         <tr><td><h1>홈</h1></td></tr>

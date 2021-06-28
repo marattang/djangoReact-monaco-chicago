@@ -1,5 +1,5 @@
 export {default as Home} from './Home'
 export {default as User} from './User'
 export {default as Item} from './Item'
-export {default as Article} from './Article'
-export {default as Todo} from './Todo'
+export {default as Blog} from './Blog'
+export {default as Stock} from './Stock'

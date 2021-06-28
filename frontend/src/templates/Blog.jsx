@@ -1,5 +1,5 @@
 import React from 'react'
-import {ArticleMenu as Menu} from '../common/Menu'
+import {BlogMenu as Menu} from '../common/Menu'
 
 const Article = ({children}) => (<>
     <h1>Article</h1>
