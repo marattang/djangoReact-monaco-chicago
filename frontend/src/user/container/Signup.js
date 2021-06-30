@@ -17,8 +17,7 @@ const SignUp = () => {
   const handleSubmit = e => {
     e.preventDefault()
     alert(`전송 클릭 ${JSON.stringify({...userInfo})}`)
-    const signupRequest = {...userInfo} // 함수가 아니라 값 할당
-    userSignup(signupRequest)
+    userSignup({...userInfo})
     .then(res => {
       alert(`회원 가입 완료 : ${res.data.result}`)
       // history.push('login') // 회원가입 성공하면 로그인으로 넘어가라. 
@@ -26,10 +25,6 @@ const SignUp = () => {
     .catch(err => {
       alert( `회원가입 실패 : ${err}`)
     })
-    
-    userLogin(signupRequest)
-    .then()
-    .catch(err => console.log(err))
     
   }
 
@@ -48,13 +43,13 @@ const SignUp = () => {
 
 
     return (<>
-    <form onSubmit={handleSubmit} method="get" style={{border:"1px solid #ccc"}}>
+    <form onSubmit={handleSubmit} method="post" style={{border:"1px solid #ccc"}}>
   <div className="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
     <hr/>
 
-    <label for="username"><b>Email</b></label>
+    <label for="username"><b>username</b></label>
     <input type="text" placeholder="Enter ID" name="username" onChange={handleChange} value={username}/>
 
     <label for="password"><b>Password</b></label>

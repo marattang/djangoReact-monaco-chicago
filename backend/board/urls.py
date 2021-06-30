@@ -1,6 +1,6 @@
-from django.urls import path
-from . import views
+from django.conf.urls import url
+from .views import Posts as post
 
-urlpattern = [
-
+urlpatterns = [
+    url('/submit', post.as_view())
 ]

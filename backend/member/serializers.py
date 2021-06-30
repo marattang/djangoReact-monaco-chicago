@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from . models import Member
+from . models import MemberVO as member
+from icecream import ic
 
 class MemberSerializer(serializers.Serializer):
     username = serializers.CharField()
@@ -7,11 +8,11 @@ class MemberSerializer(serializers.Serializer):
     name = serializers.CharField()
     email = serializers.CharField()
     class Meta:
-        model = Member
-        fields = ['username', 'password', 'name', 'email']
+        model = member
+        fields = '__all'
 
     def create(self, validate_data):
-        return Member.objects.create(**validate_data)
+        return member.objects.create(**validate_data)
 
     def update(self, instance, validated_data):
         #id, created_at, updated_at은 read only 필드이므로 update method에서는 제외
