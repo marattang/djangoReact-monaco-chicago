@@ -1,7 +1,10 @@
 import React,{useState} from 'react'
 // import './Signup.css'
+import {userSignup, userLogin} from 'api'
+import {useHistory} from 'react-router'
 
 const SignUp = () => {
+  const history = useHistory()
   const [userInfo, setUserInfo] = useState({
     username: '',
     password: '',
@@ -11,6 +14,30 @@ const SignUp = () => {
 
   const {username, password, name, email} = userInfo
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    alert(`전송 클릭 ${JSON.stringify({...userInfo})}`)
+    const signupRequest = {...userInfo} // 함수가 아니라 값 할당
+    userSignup(signupRequest)
+    .then(res => {
+      alert(`회원 가입 완료 : ${res.data.result}`)
+      // history.push('login') // 회원가입 성공하면 로그인으로 넘어가라. 
+    })
+    .catch(err => {
+      alert( `회원가입 실패 : ${err}`)
+    })
+    
+    userLogin(signupRequest)
+    .then()
+    .catch(err => console.log(err))
+    
+  }
+
+  const handleClick = e => {
+    e.preventDefault()
+    alert('취소 클릭')
+  }
+
   const handleChange = e => {
     const { name, value } = e.target
     setUserInfo({
@@ -19,20 +46,9 @@ const SignUp = () => {
     })
   }
 
-  const handleSubmit = e => {
-    e.preventDefault()
-    alert(`전송 클릭 ${JSON.stringify({...userInfo})}`)
-  }
-
-  
-  const handleClick = e => {
-    e.preventDefault()
-    alert('취소 클릭')
-  }
-
 
     return (<>
-    <form onSubmit={handleSubmit} method="post" style={{border:"1px solid #ccc"}}>
+    <form onSubmit={handleSubmit} method="get" style={{border:"1px solid #ccc"}}>
   <div className="container">
     <h1>Sign Up</h1>
     <p>Please fill in this form to create an account.</p>
