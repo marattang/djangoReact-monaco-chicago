@@ -30,7 +30,6 @@ const MemberList = () => {
     useEffect(() => {
       memberList()
       .then(res => {
-        console.log(res.data)
         setMembers(res.data)
         console.log(members.length)
       })
@@ -54,6 +53,9 @@ const MemberList = () => {
                   { members.length >= 0
                    ? members.map((member) => (
                         <TableRow key={member.username}>
+                        <TableCell component="th" scope="row">
+                            {member.username}
+                        </TableCell>
                         <TableCell component="th" scope="row">
                             {member.password}
                         </TableCell>

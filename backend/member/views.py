@@ -14,13 +14,9 @@ from icecream import ic
 
 @api_view(['GET', 'POST', 'DELETE'])
 def members(request):
-    print('**********')
     if request.method == 'GET':
         all_members = MemberVO.objects.all()
-        ic(type(all_members))
         serializer = MemberSerializer(all_members, many=True)
-        ic(type(serializer.data))
-        ic(serializer.data)
         return JsonResponse(serializer.data, safe=False)
     elif request.method == 'POST':
         data = request.data['body']
