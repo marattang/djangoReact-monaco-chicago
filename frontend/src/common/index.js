@@ -1,2 +1,2 @@
 export {default as Nav} from './Nav'
-export {UserMenu, ItemMenu, StockMenu, PostMenu} from './Menu'
+export {MemberMenu, ItemMenu, StockMenu, BoardMenu} from './Menu'

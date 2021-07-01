@@ -4,7 +4,7 @@ import {postRegister} from 'api'
 import {useHistory} from 'react-router'
 import {Button} from '@material-ui/core'
 
-const PostWrite = () => {
+const PostRegister = () => {
      const [post, setPost] = useState({
           title: '',
           content: ''
@@ -62,4 +62,4 @@ const PostWrite = () => {
 </>)
 }
 
-export default PostWrite
+export default PostRegister

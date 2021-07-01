@@ -15,12 +15,17 @@ Including another URLconf
 """
 from django.urls import path
 from common.views import Connection
-from django.urls import path, include
+from django.conf.urls import url, include
 from rest_framework import routers
 router = routers.DefaultRouter()
+from django.conf import settings
+import debug_toolbar
 
 urlpatterns = [
     path('connection', Connection.as_view()),
-    path('board', include('board.urls')),
-    path('member', include('member.urls')),
+    url(r'^api/post', include('board.urls')),
+    url(r'^api/member/', include('member.urls')),
+    url(r'^adm/member/', include('member.urls')),
+
+    path('__debug__/', include(debug_toolbar.urls)),
 ]

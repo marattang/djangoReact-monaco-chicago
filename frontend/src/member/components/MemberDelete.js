@@ -1,7 +1,8 @@
-import { userLogin } from 'api'
+import { memberDelete } from 'api'
 import {React, useState} from 'react'
-// import './Login.css'
-const Login = () => {
+// import './style/MemberLogin'
+
+const MemberDelete = () => {
     const [loginInfo, setLoginInfo] = useState({
         username: '',
         password: ''
@@ -12,12 +13,12 @@ const Login = () => {
     const handleSubmit = e => {
         e.preventDefault()
         alert(`전송 클릭 ${JSON.stringify({...loginInfo})}`)
-        userLogin({...loginInfo})
+        memberDelete({...loginInfo})
         .then(res => {
-            alert(`로그인 성공 : ${res.data.result}`)
+            alert(`삭제 성공 : ${res.data.result}`)
         })
         .catch(err => {
-            alert(`로그인 실패 : ${err}`)
+            alert(`삭제 실패 : ${err}`)
         })
     }
 
@@ -60,4 +61,4 @@ const Login = () => {
     </>
     )
 }
-export default Login
+export default MemberDelete

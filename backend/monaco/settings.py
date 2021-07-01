@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'debug_toolbar',
     'corsheaders',
     'member',
     'board',
@@ -54,7 +55,6 @@ INSTALLED_APPS = [
     'monaco',
     'population',
     'time_series',
-    'user',
 ]
 
 MIDDLEWARE = [
@@ -66,7 +66,11 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'corsheaders.middleware.CorsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware'
 ]
+
+INTERNAL_IPS = ('127.0.0.1')
+
 
 ROOT_URLCONF = 'monaco.urls'
 

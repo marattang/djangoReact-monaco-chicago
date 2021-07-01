@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Link } from "react-router-dom"
 
-const UserDetail = () => {
+const MemberDetail = () => {
     return (<>
         <nav>
           <Router>
@@ -22,4 +22,4 @@ const UserDetail = () => {
         <img sre="./images/stay_funky.jpg" width="600px"/>
         </>)
 }
-export default UserDetail
+export default MemberDetail

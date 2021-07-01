@@ -1,8 +1,9 @@
 import React from 'react'
 import { Redirect, Route, Link, BrowserRouter as Router } from "react-router-dom"
-import { Login, Signup, UserDetail, UserEdit,UserList  } from 'user'
-import { PostWrite } from 'board'
-import { Home, User , Item, Stock, Post} from 'templates'
+import { MemberDelete, MemberDetail, MemberList, MemberLogin, MemberModify, MemberRegister, MemberRetrieve} from 'member'
+import { ItemDelete, ItemDetail, ItemList, ItemModify, ItemRegister, ItemRetrieve} from 'item'
+import { PostDelete, PostDetail, PostList, PostModify, PostRegister, PostRetrieve} from 'board'
+import { Home, Member , Item, Stock, Board} from 'templates'
 import { Nav } from 'common'
 import { todoReducer } from 'store'
 import { createStore, combineReducers} from 'redux'
@@ -16,26 +17,46 @@ const App = () => {
     <nav style={{width: '500px', margin:'0 auto'}}>
             <ol>
                 <li><Link to='/home'>Home</Link></li>
-                <li><Link to='/user'>User</Link></li>
                 <li><Link to='/item'>Item</Link></li>
+                <li><Link to='/member'>Member</Link></li>
                 <li><Link to='/stock'>Stock</Link></li>
-                <li><Link to='/post'>Post</Link></li>
+                <li><Link to='/board'>Board</Link></li>
             </ol>
     </nav>
       <Provider store = {createStore(rootReducer)}>
         <Nav/>
         <Route exact path='/home' component={Home}/>
         <Redirect exact from={'/'} to={'/home'}/>
-        <Route exact path='/user' component={User}/>
-        <Route exact path='/login-form' component={Login}/>
-        <Route exact path='/signup-form' component={Signup}/>
-        <Route exact path='/user-detail' component={UserDetail}/>
-        <Route exact path='/user-edit' component={UserEdit}/>
-        <Route exact path='/user-list' component={UserList}/>
-        <Route exact path='/item' component={Item}/>
+        <Route exact path='/member' component={Member}/>
+
+
+        <Route exact path='/member-delete' component={MemberDelete}/>
+        <Route exact path='/member-detail' component={MemberDetail}/>
+        <Route exact path='/member-list' component={MemberList}/>
+        <Route exact path='/member-login' component={MemberLogin}/>
+        <Route exact path='/member-modify' component={MemberModify}/>
+        <Route exact path='/member-register' component={MemberRegister}/>
+        <Route exact path='/member-retrieve' component={MemberRetrieve}/>
+
         <Route exact path='/stock' component={Stock}/>
-        <Route exact path='/post' component={Post}/>
-        <Route exact path='/post-write' component={PostWrite}/>
+        
+        <Route exact path='/item' component={Item}/>
+        <Route exact path='/item-list' component={ItemList}/>
+        <Route exact path='/item-register' component={ItemRegister}/>
+        <Route exact path='/item-retrieve' component={ItemRetrieve}/>
+        <Route exact path='/item-detail' component={ItemDetail}/>
+        <Route exact path='/item-delete' component={ItemDelete}/>
+        <Route exact path='/item-modify' component={ItemModify}/>
+
+        <Route exact path='/board' component={Board}/>
+        <Route exact path='/post-delete' component={PostDelete}/>
+        <Route exact path='/post-detail' component={PostDetail}/>
+        <Route exact path='/post-list' component={PostList}/>
+        <Route exact path='/post-modify' component={PostModify}/>
+        <Route exact path='/post-register' component={PostRegister}/>
+        <Route exact path='/post-retrieve' component={PostRetrieve}/>
+
+
       </Provider>
     </Router>
   </div>)
