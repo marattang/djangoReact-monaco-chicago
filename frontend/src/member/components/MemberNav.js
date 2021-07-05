@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import './Nav.css'
+import '../styles/MemberNav.css'
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
@@ -63,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-export default function SearchAppBar() {
+const MemberNav = () => {
   const classes = useStyles();
   return (
     <div className="Nav">
@@ -80,10 +80,10 @@ export default function SearchAppBar() {
             </IconButton>
             <Typography className={classes.title} variant="h6" noWrap>
               <Link to='/home'>Home</Link>&nbsp;&nbsp;
-              <Link to='/user'>User</Link>&nbsp;&nbsp;
+              <Link to='/member'>Member</Link>&nbsp;&nbsp;
               <Link to='/item'>Item</Link>&nbsp;&nbsp;
+              <Link to='/board'>Board</Link>&nbsp;&nbsp;
               <Link to='/stock'>Stock</Link>&nbsp;&nbsp;
-              <Link to='/post'>Post</Link>&nbsp;&nbsp;
             </Typography>
             <div className={classes.search}>
               <div className={classes.searchIcon}>
@@ -104,3 +104,5 @@ export default function SearchAppBar() {
     </div>
   );
 }
+
+export default MemberNav

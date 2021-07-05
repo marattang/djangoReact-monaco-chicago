@@ -1,5 +1,4 @@
 """admin URL Configuration
-
 The `urlpatterns` list routes URLs to views. For more information please see:
     https://docs.djangoproject.com/en/3.1/topics/http/urls/
 Examples:
@@ -13,19 +12,29 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.urls import path
 from common.views import Connection
-from django.conf.urls import url, include
+from django.conf.urls import include, url
+from django.urls import path
 from rest_framework import routers
-router = routers.DefaultRouter()
-from django.conf import settings
-import debug_toolbar
+# router = routers.DefaultRouter()
 
 urlpatterns = [
     path('connection', Connection.as_view()),
-    url(r'^api/post', include('board.urls')),
     url(r'^api/member/', include('member.urls')),
+    url(r'^api/post/', include('board.urls')),
     url(r'^adm/member/', include('member.urls')),
 
-    path('__debug__/', include(debug_toolbar.urls)),
 ]
+
+'''
+CBV (Class Based View)
+from common.views import Connection
+from django.urls import path, include
+from rest_framework import routers
+# router = routers.DefaultRouter()
+urlpatterns = [
+    path('connection', Connection.as_view()),
+    path('board', include('board.urls')),
+    path('member', include('member.urls')),
+]
+'''
